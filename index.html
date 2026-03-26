@@ -1,31 +1,146 @@
-<!-- ================= HOME PAGE (index.html) ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rose Valley - Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+<title>Rose Valley Dashboard</title>
+
 <style>
-body{margin:0;font-family:Poppins;background:linear-gradient(135deg,#f8cdda,#f6d365);} 
-nav{background:#8b2c4a;padding:15px;text-align:center;}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
-.container{text-align:center;padding:80px;color:#333;}
-h1{font-family:'Playfair Display';font-size:3rem;color:#8b2c4a;}
-.btn{background:#8b2c4a;color:white;padding:12px 25px;border-radius:30px;text-decoration:none;}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        background: #f4f6f9;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 220px;
+        background: #2c3e50;
+        color: white;
+        height: 100vh;
+        padding-top: 20px;
+        position: fixed;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+    }
+
+    .sidebar a:hover {
+        background: #34495e;
+    }
+
+    /* Main content */
+    .main {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    /* Top bar */
+    .topbar {
+        background: white;
+        padding: 15px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .topbar h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    /* Cards */
+    .cards {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .card h3 {
+        margin: 10px 0;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 15px;
+        background: white;
+        margin-top: 20px;
+    }
 </style>
 </head>
+
 <body>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="contact.html">Contact</a>
-</nav>
-<div class="container">
-<h1>Welcome to Rose Valley 🌹</h1>
-<p>Where beauty meets elegance and nature smiles.</p>
-<a href="about.html" class="btn">Learn More</a>
+
+<div class="sidebar">
+    <h2>🌹 Rose Valley</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Orders</a>
+    <a href="#">Customers</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
 </div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Dashboard</h1>
+        <span id="date"></span>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Total Roses</h3>
+            <p>1200</p>
+        </div>
+
+        <div class="card">
+            <h3>Orders</h3>
+            <p>320</p>
+        </div>
+
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>$5000</p>
+        </div>
+
+        <div class="card">
+            <h3>Customers</h3>
+            <p>150</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Rose Valley Dashboard
+    </div>
+
+</div>
+
+<script>
+    // Show current date
+    const date = new Date();
+    document.getElementById("date").innerText = date.toDateString();
+</script>
+
 </body>
 </html>
