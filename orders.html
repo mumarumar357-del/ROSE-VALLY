@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Valley - Orders</title>
+
+<style>
+    body {
+        font-family: Arial;
+        margin: 0;
+        background: #f4f6f9;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        background: #2c3e50;
+        color: white;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    /* Form */
+    .form-box {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    button {
+        background: #27ae60;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #219150;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: #2c3e50;
+        color: white;
+    }
+
+    tr:hover {
+        background: #f1f1f1;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🌹 Rose Valley Orders</h1>
+
+<div class="container">
+
+    <!-- Add Order Form -->
+    <div class="form-box">
+        <input type="text" id="customer" placeholder="Customer Name">
+        <input type="text" id="product" placeholder="Product Name">
+        <input type="number" id="quantity" placeholder="Quantity">
+        <button onclick="addOrder()">Add Order</button>
+    </div>
+
+    <!-- Orders Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody id="ordersTable">
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    let orderId = 1;
+
+    function addOrder() {
+        let customer = document.getElementById("customer").value;
+        let product = document.getElementById("product").value;
+        let quantity = document.getElementById("quantity").value;
+
+        if(customer === "" || product === "" || quantity === "") {
+            alert("Please fill all fields");
+            return;
+        }
+
+        let table = document.getElementById("ordersTable");
+
+        let row = table.insertRow();
+
+        row.innerHTML = `
+            <td>${orderId}</td>
+            <td>${customer}</td>
+            <td>${product}</td>
+            <td>${quantity}</td>
+        `;
+
+        orderId++;
+
+        // Clear inputs
+        document.getElementById("customer").value = "";
+        document.getElementById("product").value = "";
+        document.getElementById("quantity").value = "";
+    }
+</script>
+
+</body>
+</html>
